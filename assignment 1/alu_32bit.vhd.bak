@@ -1,0 +1,126 @@
+-- 32 bit ALU
+-- 1 bit ALU + MSB ALU
+-- Aing KK.
+-- Reference : Appendix B, FIGURE B.5.10, Computer Organization and Design: The Hardware/Software Interface, Fifth Edition
+
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+USE ieee.std_logic_unsigned.ALL;
+USE ieee.std_logic_misc.ALL;
+
+ENTITY alu_32bit IS
+	generic (N : INTEGER := 32);
+	PORT(
+		-- Input
+		a         : in std_logic_vector((N-1) DOWNTO 0);
+		b         : in std_logic_vector((N-1) DOWNTO 0);
+		a_inv     : in std_logic;
+		b_inv     : in std_logic;
+		
+		c_in      : in std_logic;
+		ops       : in std_logic_vector(1 DOWNTO 0);
+		
+		-- Output 
+		result    : out std_logic_vector((N-1) DOWNTO 0);
+		zero      : out std_logic;
+		overflow  : out std_logic
+	);
+END alu_32bit;
+
+
+
+
+ARCHITECTURE Struc OF alu_32bit IS
+	
+	-- London calling . . .
+	component alu_msb is
+		port(
+			a, b : IN std_logic;
+			less : IN std_logic;
+			c_in : IN std_logic;
+			a_inv : IN std_logic;
+			b_inv : IN std_logic;
+			ops : IN std_logic_vector(1 DOWNTO 0);
+			result : OUT std_logic;
+			set : OUT std_logic;
+			overflow : OUT std_logic
+		);
+	end component;
+		
+	component alu_1bit is
+		port(
+			a, b : IN std_logic;
+			c_in : IN std_logic;
+			a_inv : IN std_logic;
+			b_inv : IN std_logic;
+			less : IN std_logic;
+			ops : IN std_logic_vector(1 DOWNTO 0); 
+			result : OUT std_logic;
+			c_out : OUT std_logic
+		);
+	end component;
+	
+	signal result_temp : std_logic_vector((N-1) downto 0);
+	signal c : std_logic_vector((N-1) downto 0);
+	signal less_sig : std_logic;
+	
+	-- It's show time . . .
+	BEGIN
+		
+		c(0) <= c_in;
+		
+		alu_0 : alu_1bit port map(
+			a => a(0),
+			b => b(0),
+			c_in => c(0), 
+			a_inv => a_inv, 
+			b_inv => b_inv,
+			less => less_sig,
+			ops => ops,
+			result => result_temp(0),
+			c_out => c(1)
+		);
+	
+		-- generate and connect ALU 31 bits together
+		generate_31bits: for i in 1 to (N-2) generate
+			alu : alu_1bit port map(
+				a => a(i),
+				b => b(i),
+				c_in => c(i), 
+				a_inv => a_inv, 
+				b_inv => b_inv,
+				less => '0',
+				ops => ops,
+				result => result_temp(i),
+				c_out => c(i+1)
+			);
+		end generate;
+		
+		--	Port value to 32th bit (MSB)
+		msb_alu : alu_msb port map(
+			a => a((N-2)), 
+			b => b((N-2)),
+			less => '0',
+			c_in => c((N-1)),
+			a_inv => a_inv, 
+			b_inv => b_inv,
+			ops => ops,
+
+			result => result_temp((N-1)),
+			set => less_sig,
+			overflow => overflow
+		);
+		
+		-- send results
+		result <= result_temp;
+		
+		-- zero results
+		zero <= OR_REDUCE(result_temp);
+		
+		
+		
+		
+	
+END Struc;

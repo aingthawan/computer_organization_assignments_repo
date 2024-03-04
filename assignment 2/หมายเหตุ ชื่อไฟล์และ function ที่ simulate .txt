@@ -1,0 +1,15 @@
+I-Type
+lw  Waveform.vwf
+sw  Waveform1.vwf
+beq Waveform2.vwf
+
+R-Type
+add Waveform3.vwf
+sub Waveform4.vwf
+and Waveform5.vwf
+or  Waveform6.vwf
+nor Waveform7.vwf
+slt Waveform8.vwf
+
+J-Type
+j   Waveform9.vwf

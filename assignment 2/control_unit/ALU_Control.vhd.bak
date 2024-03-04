@@ -1,0 +1,10 @@
+entity ALU_Control is
+    port (
+        
+    );
+end entity;
+
+architecture Behave of ALU_Control is
+begin
+    
+end architecture;

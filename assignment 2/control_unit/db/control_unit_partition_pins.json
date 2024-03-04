@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "RegDst",
+					"strict" : false
+				},
+				{
+					"name" : "Jump",
+					"strict" : false
+				},
+				{
+					"name" : "Branch",
+					"strict" : false
+				},
+				{
+					"name" : "MemtoReg",
+					"strict" : false
+				},
+				{
+					"name" : "MemRead",
+					"strict" : false
+				},
+				{
+					"name" : "MemWrite",
+					"strict" : false
+				},
+				{
+					"name" : "ALUSrc",
+					"strict" : false
+				},
+				{
+					"name" : "RegWrite",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_control_input[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_control_input[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_control_input[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_control_input[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[28]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[31]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[29]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[30]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[26]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction_in[27]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/My Drive/YEAR_2/Y2T2/comOrg/assignment 2/control_unit/simulation/qsim
+Econtrol_unit
+Z1 w1678024770
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 3HQPc5MVbmOPN?>a5EBYj2
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx8 cyclonev 19 cyclonev_components 0 22 jZ]H46BQLgIP5mfRTO`3B1
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z8 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 ^Ch;U@;bMk1;>A2B<UV`k2
+!i122 54
+R0
+Z9 8control_unit.vho
+Z10 Fcontrol_unit.vho
+l0
+L37 1
+Vo5]hE;8AKLHI8VeAmR0>^1
+!s100 H4abZ`_;Ob_9[N02XFVZk1
+Z11 OV;C;2020.1;71
+32
+Z12 !s110 1678024772
+!i10b 1
+Z13 !s108 1678024772.000000
+Z14 !s90 -work|work|control_unit.vho|
+Z15 !s107 control_unit.vho|
+!i113 1
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 12 control_unit 0 22 o5]hE;8AKLHI8VeAmR0>^1
+!i122 54
+l161
+L52 959
+Vg]_C0=MlgWlcilQ:FDZD20
+!s100 6C]E`CUF23hne169W33``3
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Econtrol_unit_vhd_vec_tst
+Z18 w1678024768
+R6
+R7
+!i122 55
+R0
+Z19 8Waveform5.vwf.vht
+Z20 FWaveform5.vwf.vht
+l0
+L32 1
+VB1?Sf9LaG`GH6?X2_N=E_0
+!s100 XDFK<oI9FQ[@?WdlJP=h03
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Waveform5.vwf.vht|
+Z22 !s107 Waveform5.vwf.vht|
+!i113 1
+R16
+R17
+Acontrol_unit_arch
+R6
+R7
+Z23 DEx4 work 24 control_unit_vhd_vec_tst 0 22 B1?Sf9LaG`GH6?X2_N=E_0
+!i122 55
+l61
+Z24 L34 235
+Z25 VAGHg_U9<Kje<NDje]nD`Z2
+Z26 !s100 l4fTb425K^1d:m^]Ci@??3
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 1
+R16
+R17

@@ -1,0 +1,103 @@
+|alu_32bit
+a[0] => alu_1bit:alu_0.a
+a[1] => alu_1bit:generate_31bits:1:alu.a
+a[2] => alu_1bit:generate_31bits:2:alu.a
+a[3] => alu_msb:msb_alu.a
+b[0] => alu_1bit:alu_0.b
+b[1] => alu_1bit:generate_31bits:1:alu.b
+b[2] => alu_1bit:generate_31bits:2:alu.b
+b[3] => alu_msb:msb_alu.b
+a_inv => alu_1bit:alu_0.a_inv
+a_inv => alu_1bit:generate_31bits:1:alu.a_inv
+a_inv => alu_1bit:generate_31bits:2:alu.a_inv
+a_inv => alu_msb:msb_alu.a_inv
+b_inv => alu_1bit:alu_0.b_inv
+b_inv => alu_1bit:alu_0.c_in
+b_inv => alu_1bit:generate_31bits:1:alu.b_inv
+b_inv => alu_1bit:generate_31bits:2:alu.b_inv
+b_inv => alu_msb:msb_alu.b_inv
+c_in => ~NO_FANOUT~
+ops[0] => alu_1bit:alu_0.ops[0]
+ops[0] => alu_1bit:generate_31bits:1:alu.ops[0]
+ops[0] => alu_1bit:generate_31bits:2:alu.ops[0]
+ops[0] => alu_msb:msb_alu.ops[0]
+ops[1] => alu_1bit:alu_0.ops[1]
+ops[1] => alu_1bit:generate_31bits:1:alu.ops[1]
+ops[1] => alu_1bit:generate_31bits:2:alu.ops[1]
+ops[1] => alu_msb:msb_alu.ops[1]
+result[0] <= alu_1bit:alu_0.result
+result[1] <= alu_1bit:generate_31bits:1:alu.result
+result[2] <= alu_1bit:generate_31bits:2:alu.result
+result[3] <= alu_msb:msb_alu.result
+zero <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= alu_msb:msb_alu.overflow
+
+
+|alu_32bit|alu_1bit:alu_0
+a => input_a.DATAB
+a => input_a.DATAA
+b => input_b.DATAB
+b => input_b.DATAA
+c_in => sum_ans.IN1
+c_in => c_out.IN1
+a_inv => input_a.OUTPUTSELECT
+b_inv => input_b.OUTPUTSELECT
+less => Mux0.IN0
+ops[0] => Mux0.IN2
+ops[1] => Mux0.IN1
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_32bit|alu_1bit:\generate_31bits:1:alu
+a => input_a.DATAB
+a => input_a.DATAA
+b => input_b.DATAB
+b => input_b.DATAA
+c_in => sum_ans.IN1
+c_in => c_out.IN1
+a_inv => input_a.OUTPUTSELECT
+b_inv => input_b.OUTPUTSELECT
+less => Mux0.IN0
+ops[0] => Mux0.IN2
+ops[1] => Mux0.IN1
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_32bit|alu_1bit:\generate_31bits:2:alu
+a => input_a.DATAB
+a => input_a.DATAA
+b => input_b.DATAB
+b => input_b.DATAA
+c_in => sum_ans.IN1
+c_in => c_out.IN1
+a_inv => input_a.OUTPUTSELECT
+b_inv => input_b.OUTPUTSELECT
+less => Mux0.IN0
+ops[0] => Mux0.IN2
+ops[1] => Mux0.IN1
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_32bit|alu_msb:msb_alu
+a => input_a.DATAB
+a => overflow.IN0
+a => overflow.IN0
+a => input_a.DATAA
+b => input_b.DATAB
+b => overflow.IN1
+b => overflow.IN1
+b => input_b.DATAA
+less => Mux0.IN0
+c_in => sum_ans.IN1
+a_inv => input_a.OUTPUTSELECT
+b_inv => input_b.OUTPUTSELECT
+ops[0] => Mux0.IN2
+ops[1] => Mux0.IN1
+result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+set <= sum_ans.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
+
+

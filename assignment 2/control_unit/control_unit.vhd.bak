@@ -1,0 +1,25 @@
+-- A code design for 
+-- Control unit of MIPS Processor
+-- Dev : Aingkk.
+
+LIBRARY ieee:
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY control_unit IS
+	PORT(
+		
+		instruction_in : IN std_logic_vector(31 DOWNTO 0);
+		
+		RegDst         : OUT std_logic;
+		Jump           : OUT std_logic;
+		Branch         : OUT std_logic;
+		MemtoReq       : OUT std_logic;
+		MemRead        : OUT std_logic;
+		ALUOp          : OUT std_logic_vector(3 DOWNTO 0);
+		MemWrite       : OUT std_logic;
+		ALUSrc         : OUT std_logic;
+		RegWrite       : OUT std_logic		
+	);
+END control_unit;
